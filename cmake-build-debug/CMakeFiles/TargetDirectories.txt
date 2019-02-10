@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/4Sem/CountWords/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/CLionProjects/4Sem/CountWords/cmake-build-debug/CMakeFiles/CountWords.dir
+C:/Users/User/CLionProjects/4Sem/CountWords/cmake-build-debug/CMakeFiles/edit_cache.dir
