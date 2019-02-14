@@ -1,14 +1,10 @@
 {'round: 3
-(crash: 3
-(my: 1
-(spin: 3
 a: 16
 all: 1
 and: 15
 apart: 5
 as: 1
-bar: 3
-bar): 3
+bar: 6
 blowin': 2
 both: 3
 breaks: 12
@@ -21,10 +17,10 @@ can: 4
 cigarettes: 1
 circles: 3
 cold: 1
+crash: 3
 crashing: 3
 cuts: 4
-dark: 3
-dark): 3
+dark: 6
 deep: 4
 desert: 1
 die: 1
@@ -36,8 +32,7 @@ fall: 6
 gon': 5
 got: 1
 heard: 1
-heart: 12
-heart): 1
+heart: 13
 high: 1
 hold: 1
 house: 1
@@ -61,7 +56,7 @@ love: 2
 me: 1
 mhmm: 5
 mmm: 2
-my: 1
+my: 2
 night: 2
 nothing: 28
 now: 5
@@ -78,7 +73,7 @@ scar: 4
 silence: 3
 silver: 1
 smoking: 1
-spin: 3
+spin: 6
 tennessee: 1
 that: 1
 the: 14
@@ -99,18 +94,18 @@ wind: 1
 world: 4
 you: 11}
 --- --- --- --- ---
-{1: {(my, all, as, bullet, burning, cigarettes, cold, desert, die, drunk, dry, each, got, heard, heart), high, hold, house, ice, it's, just, last, leave, left, lies, live, me, my, oh, on, other, phone, pretty, remember, said, silver, smoking, tennessee, that, these, we'll, were, what, wind}
-2: {blowin', i, is, love, mmm, night, to, we're}
-3: {'round, (crash, (spin, bar, bar), both, circles, crashing, dark, dark), endless, record, silence, spin, thunder}
+{1: {all, as, bullet, burning, cigarettes, cold, desert, die, drunk, dry, each, got, heard, high, hold, house, ice, it's, just, last, leave, left, lies, live, me, oh, on, other, phone, pretty, remember, said, silver, smoking, tennessee, that, these, we'll, were, what, wind}
+2: {blowin', i, is, love, mmm, my, night, to, we're}
+3: {'round, both, circles, crash, crashing, endless, record, silence, thunder}
 4: {by, can, cuts, deep, hurt, know, leaves, scar, there's, things, well, world}
 5: {apart, gon', mhmm, now, save, us}
-6: {fall}
+6: {bar, dark, fall, spin}
 7: {we}
 8: {broken, but, this}
 9: {it}
 11: {you}
-12: {breaks, heart}
-13: {like}
+12: {breaks}
+13: {heart, like}
 14: {the}
 15: {and, in}
 16: {a}

@@ -6,6 +6,10 @@
 
 using namespace std;
 
+void StringPrepare(string& str);
+void Parentheses(string& str);
+void PrintWords(const vector<string>& words, const int& N, int& count);
+
 template <class T>
 ostream& operator << (ostream& os, const vector<T>& s) {
     os << "{";
@@ -35,18 +39,36 @@ ostream& operator << (ostream& os, const map<K, V>& m) {
     return os << "}";
 }
 
+void Parentheses(string& str) {     //разбираемся со скобками
+    char last_character = str[str.size() - 1];
+    if (last_character == ')' || last_character == ']' || last_character == '}'
+        || last_character == '"') {
+        str.pop_back();
+    }
+
+    char first_character = str[0];
+    if (first_character == '(' || first_character == '[' || first_character == '{'
+            || first_character == '"') {
+        str.erase(begin(str));
+    }
+    if (first_character == '-') {
+        str.erase(begin(str));
+    }
+}
+
 void StringPrepare(string& str) {
     //converting string to lower case
     transform(str.begin(), str.end(), str.begin(), ::tolower);
 
     //deleting point at the back (all signs needed)
-
     char last_character = str[str.size() - 1];
     //cout << last_character << endl;
     if (last_character == '.' || last_character == ','
         || last_character == '!' || last_character == '?') {
         str.pop_back();
     }
+
+    Parentheses(str);
 }
 
 //чтобы вывести нужное количество слов даже если есть слова "повторяющегося количества"
@@ -62,7 +84,6 @@ void PrintWords(const vector<string>& words, const int& N, int& count) {
 
 int main() {
     string s;
-
     map<string, int> WordsNumber;
 
     ifstream input("input.txt");
@@ -77,30 +98,13 @@ int main() {
     output << "--- --- --- --- ---" << endl;
 
     map<int, vector<string>> CountWords;
-    vector<int> NumberOfRepetition;
 
     for(const auto& thing : WordsNumber) {
         //добавляем слово в вектор строк, соответствующий
         //количеству вхождений этого слова
 
         CountWords[thing.second].push_back(thing.first);
-
-        NumberOfRepetition.push_back(thing.second);
     }
-
-    //ищем максимальное число вхождений и соответствующим образом сортируем вектор
-    sort(begin(NumberOfRepetition), end(NumberOfRepetition), [](int a, int b) {
-        return (a > b);
-    });
-
-    //cout << NumberOfRepetition << endl;
-
-    //оставляем только уникальные элементы
-    //вектора для удобства дальнейшей иттерации по нему
-    auto it = unique(begin(NumberOfRepetition), end(NumberOfRepetition));
-    NumberOfRepetition.erase(it, end(NumberOfRepetition));
-
-    //cout << NumberOfRepetition << endl;
 
     output << CountWords << endl;     //вывод вновь составленного словаря в файл
     output.close();
@@ -109,11 +113,13 @@ int main() {
     cin >> N;
     int count = 0;
 
-    for(int i = 0; count < N; i ++) {
-        PrintWords(CountWords[NumberOfRepetition[i]], N, count);
+    auto nd = end(CountWords);      //начинаем с конца словаря, т.к. там наибольшие ключи(количества повторений)
+    while (count < N) {
+        nd --;
+        PrintWords(nd->second, N, count);
 
-        /*cout << CountWords[NumberOfRepetition[i]] << endl;
-        count += CountWords[NumberOfRepetition[i]].size();*/
+        //cout << nd->first << " " << nd->second << endl;
+        //count ++;
     }
 
     return 0;
